@@ -27,10 +27,10 @@ function CategoryFilter() {
                 <button
                     key={category}
                     onClick={() => handleCategoryChange(category)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors cursor-pointer
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all cursor-pointer
                         ${currentCategory === category
-                            ? 'bg-orange-600 text-white'
-                            : 'bg-gray-100 text-gray-600 hover:bg-orange-100 hover:text-orange-600'
+                            ? 'bg-white text-black font-semibold shadow-md'
+                            : 'bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-600'
                         }`}
                 >
                     {category}

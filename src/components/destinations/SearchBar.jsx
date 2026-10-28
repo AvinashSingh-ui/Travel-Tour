@@ -23,13 +23,13 @@ function SearchBar() {
 
     return (
         <div className='relative w-full max-w-md'>
-            <span className='absolute left-3 top-1/2 -translate-y-1/2 text-gray-400'>🔍</span>
+            <span className='absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500'>🔍</span>
             <input
                 type='text'
                 placeholder='Search destinations...'
                 defaultValue={currentSearch}
                 onChange={handleSearch}
-                className='w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm'
+                className='w-full pl-10 pr-4 py-2.5 rounded-xl bg-zinc-900/80 border border-zinc-800 text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent text-sm transition-all'
             />
         </div>
     )

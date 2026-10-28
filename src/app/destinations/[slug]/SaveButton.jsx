@@ -18,10 +18,10 @@ function SaveButton({ slug }) {
     return (
         <button
             onClick={handleToggle}
-            className={`flex-1 font-semibold py-3 rounded-xl transition-colors cursor-pointer
+            className={`flex-1 font-semibold py-3 rounded-xl transition-all cursor-pointer
                 ${saved
-                    ? 'bg-gray-800 text-white hover:bg-gray-700'
-                    : 'bg-orange-600 text-white hover:bg-orange-700'
+                    ? 'bg-zinc-800 text-white border border-zinc-600 hover:bg-zinc-700'
+                    : 'bg-white text-black hover:bg-zinc-200 shadow-md'
                 }`}
         >
             {saved ? '♥ Saved' : '♡ Save to Favorites'}

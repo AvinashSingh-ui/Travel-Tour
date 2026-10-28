@@ -7,7 +7,7 @@ import Image from 'next/image'
 function DestinationCard({ destination }) {
     return (
         <Link href={`/destinations/${destination.slug}`} className='group'>
-            <div className='bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300'>
+            <div className='bg-zinc-900/60 border border-zinc-800 hover:border-zinc-600 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1'>
 
                 <div className='relative h-52 w-full overflow-hidden'>
                     <Image
@@ -18,34 +18,34 @@ function DestinationCard({ destination }) {
                         className='object-cover group-hover:scale-105 transition-transform duration-300'
                     />
 
-                    <span className='absolute top-3 left-3 bg-orange-600 text-white text-xs font-semibold px-3 py-1 rounded-full'>
+                    <span className='absolute top-3 left-3 bg-white/90 text-black text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-md'>
                         {destination.category}
                     </span>
                 </div>
 
                 <div className='p-4'>
-                    <h3 className='text-lg font-bold text-gray-800 group-hover:text-orange-600 transition-colors'>
+                    <h3 className='text-lg font-bold text-white group-hover:text-zinc-300 transition-colors'>
                         {destination.name}
                     </h3>
-                    <p className='text-sm text-gray-500 mt-1 line-clamp-2'>
+                    <p className='text-sm text-zinc-400 mt-1 line-clamp-2'>
                         {destination.shortDescription}
                     </p>
 
                     <div className='flex items-center justify-between mt-3'>
-                        <div className='flex items-center gap-1 text-sm text-amber-500'>
+                        <div className='flex items-center gap-1 text-sm text-zinc-300'>
                             <span>⭐</span>
                             <span className='font-medium'>{destination.rating}</span>
                         </div>
-                        <div className='text-sm text-gray-400'>
+                        <div className='text-sm text-zinc-500'>
                             {destination.duration}
                         </div>
                     </div>
 
-                    <div className='mt-3 pt-3 border-t border-gray-100 flex items-center justify-between'>
-                        <p className='text-orange-600 font-bold text-lg'>
+                    <div className='mt-3 pt-3 border-t border-zinc-800 flex items-center justify-between'>
+                        <p className='text-white font-bold text-lg'>
                             ${destination.price}
                         </p>
-                        <span className='text-xs text-gray-400'>per person</span>
+                        <span className='text-xs text-zinc-500'>per person</span>
                     </div>
                 </div>
             </div>

@@ -27,14 +27,14 @@ export default function SavedPage() {
     if (!mounted) {
         return (
             <div className='max-w-6xl mx-auto px-4 py-10'>
-                <h1 className='text-3xl font-bold text-gray-800 mb-8'>Saved Destinations</h1>
+                <h1 className='text-3xl font-extrabold text-white tracking-tight mb-8'>Saved Destinations</h1>
                 <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
                     {[1, 2, 3].map((i) => (
-                        <div key={i} className='bg-white rounded-2xl overflow-hidden shadow-md'>
-                            <div className='h-44 bg-gray-200 animate-pulse' />
+                        <div key={i} className='bg-zinc-900/60 border border-zinc-800 rounded-2xl overflow-hidden shadow-md'>
+                            <div className='h-44 bg-zinc-800 animate-pulse' />
                             <div className='p-4 space-y-2'>
-                                <div className='h-5 w-3/4 bg-gray-200 rounded animate-pulse' />
-                                <div className='h-4 w-1/2 bg-gray-100 rounded animate-pulse' />
+                                <div className='h-5 w-3/4 bg-zinc-800 rounded animate-pulse' />
+                                <div className='h-4 w-1/2 bg-zinc-800/60 rounded animate-pulse' />
                             </div>
                         </div>
                     ))}
@@ -45,21 +45,21 @@ export default function SavedPage() {
 
     return (
         <div className='max-w-6xl mx-auto px-4 py-10'>
-            <h1 className='text-3xl font-bold text-gray-800 mb-2'>Saved Destinations</h1>
-            <p className='text-gray-500 mb-8'>
+            <h1 className='text-3xl font-extrabold text-white tracking-tight mb-2'>Saved Destinations</h1>
+            <p className='text-zinc-400 mb-8'>
                 {savedDestinations.length} saved destination{savedDestinations.length !== 1 ? 's' : ''}
             </p>
 
             {savedDestinations.length === 0 ? (
                 <div className='text-center py-16'>
-                    <p className='text-5xl mb-4'>💝</p>
-                    <h3 className='text-lg font-semibold text-gray-600'>No saved destinations yet</h3>
-                    <p className='text-sm text-gray-400 mt-1 mb-6'>
+                    <p className='text-5xl mb-4'>🤍</p>
+                    <h3 className='text-lg font-semibold text-zinc-300'>No saved destinations yet</h3>
+                    <p className='text-sm text-zinc-500 mt-1 mb-6'>
                         Browse destinations and tap the save button to add them here.
                     </p>
                     <Link
                         href='/destinations'
-                        className='inline-block bg-orange-600 hover:bg-orange-700 text-white font-semibold px-6 py-3 rounded-full transition-colors'
+                        className='inline-block bg-white hover:bg-zinc-200 text-black font-semibold px-6 py-3 rounded-full shadow-md transition-all'
                     >
                         Explore Destinations
                     </Link>
@@ -67,7 +67,7 @@ export default function SavedPage() {
             ) : (
                 <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
                     {savedDestinations.map((dest) => (
-                        <div key={dest.slug} className='bg-white rounded-2xl overflow-hidden shadow-md'>
+                        <div key={dest.slug} className='bg-zinc-900/60 border border-zinc-800 hover:border-zinc-600 rounded-2xl overflow-hidden shadow-xl transition-all'>
                             <Link href={`/destinations/${dest.slug}`}>
                                 <div className='relative h-44 overflow-hidden'>
                                     <Image
@@ -80,13 +80,13 @@ export default function SavedPage() {
                                 </div>
                             </Link>
                             <div className='p-4'>
-                                <h3 className='font-bold text-gray-800'>{dest.name}</h3>
-                                <p className='text-sm text-gray-500 mt-1'>{dest.shortDescription}</p>
+                                <h3 className='font-bold text-white'>{dest.name}</h3>
+                                <p className='text-sm text-zinc-400 mt-1'>{dest.shortDescription}</p>
                                 <div className='flex items-center justify-between mt-3'>
-                                    <span className='text-orange-600 font-bold'>${dest.price}</span>
+                                    <span className='text-white font-bold'>${dest.price}</span>
                                     <button
                                         onClick={() => handleRemove(dest.slug)}
-                                        className='text-sm text-red-500 hover:text-red-700 transition-colors cursor-pointer'
+                                        className='text-sm text-zinc-400 hover:text-white transition-colors cursor-pointer'
                                     >
                                         Remove
                                     </button>

@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { destinations, getDestinationBySlug } from '@/data/destinations'
 import SaveButton from './SaveButton'
 
+export const instant = false
+
 export async function generateStaticParams() {
     return destinations.map((dest) => ({
         slug: dest.slug,
@@ -37,12 +39,12 @@ export default async function DestinationDetailPage({ params }) {
         <div className='max-w-4xl mx-auto px-4 py-10'>
             <Link
                 href='/destinations'
-                className='inline-flex items-center text-sm text-gray-500 hover:text-orange-600 mb-6 transition-colors'
+                className='inline-flex items-center text-sm text-zinc-400 hover:text-white mb-6 transition-colors'
             >
                 ← Back to Destinations
             </Link>
 
-            <div className='relative h-72 sm:h-96 w-full rounded-2xl overflow-hidden shadow-lg'>
+            <div className='relative h-72 sm:h-96 w-full rounded-2xl overflow-hidden shadow-2xl border border-zinc-800'>
                 <Image
                     src={destination.image}
                     alt={destination.name}
@@ -52,7 +54,7 @@ export default async function DestinationDetailPage({ params }) {
                     className='object-cover'
                 />
                 <div className='absolute top-4 left-4'>
-                    <span className='bg-orange-600 text-white text-xs font-semibold px-3 py-1 rounded-full'>
+                    <span className='bg-white/90 text-black text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-md'>
                         {destination.category}
                     </span>
                 </div>
@@ -61,34 +63,34 @@ export default async function DestinationDetailPage({ params }) {
             <div className='mt-8'>
                 <div className='flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4'>
                     <div>
-                        <h1 className='text-3xl font-bold text-gray-800'>{destination.name}</h1>
-                        <div className='flex items-center gap-4 mt-2 text-sm text-gray-500'>
+                        <h1 className='text-3xl font-extrabold text-white tracking-tight'>{destination.name}</h1>
+                        <div className='flex items-center gap-4 mt-2 text-sm text-zinc-400'>
                             <span className='flex items-center gap-1'>
-                                ⭐ <strong className='text-amber-500'>{destination.rating}</strong>
+                                ⭐ <strong className='text-zinc-200'>{destination.rating}</strong>
                             </span>
                             <span>🕐 {destination.duration}</span>
                         </div>
                     </div>
                     <div className='text-right'>
-                        <p className='text-3xl font-bold text-orange-600'>${destination.price}</p>
-                        <p className='text-xs text-gray-400'>per person</p>
+                        <p className='text-3xl font-bold text-white'>${destination.price}</p>
+                        <p className='text-xs text-zinc-500'>per person</p>
                     </div>
                 </div>
 
-                <p className='text-gray-600 leading-relaxed mt-6'>
+                <p className='text-zinc-300 leading-relaxed mt-6'>
                     {destination.description}
                 </p>
 
                 <div className='mt-8'>
-                    <h2 className='text-xl font-bold text-gray-800 mb-4'>Trip Highlights</h2>
+                    <h2 className='text-xl font-bold text-white mb-4'>Trip Highlights</h2>
                     <div className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
                         {destination.highlights.map((highlight) => (
                             <div
                                 key={highlight}
-                                className='flex items-center gap-3 bg-orange-50 p-3 rounded-xl'
+                                className='flex items-center gap-3 bg-zinc-900/80 border border-zinc-800 p-3 rounded-xl'
                             >
-                                <span className='text-orange-600'>✓</span>
-                                <span className='text-sm text-gray-700'>{highlight}</span>
+                                <span className='text-white font-bold'>✓</span>
+                                <span className='text-sm text-zinc-300'>{highlight}</span>
                             </div>
                         ))}
                     </div>
@@ -98,7 +100,7 @@ export default async function DestinationDetailPage({ params }) {
                     <SaveButton slug={destination.slug} />
                     <Link
                         href='/contact'
-                        className='flex-1 text-center border-2 border-orange-600 text-orange-600 hover:bg-orange-50 font-semibold py-3 rounded-xl transition-colors'
+                        className='flex-1 text-center border border-zinc-600 text-white hover:bg-white hover:text-black font-semibold py-3 rounded-xl transition-all'
                     >
                         Contact Us
                     </Link>
